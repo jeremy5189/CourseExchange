@@ -1,0 +1,15 @@
+body {
+    margin-top: 75px;
+}
+
+.navbar .brand {
+    margin-left: 0px;
+}
+
+.navbar .nav.pull-right {
+    margin-right: 10px;
+}
+
+.hero-unit h1 {
+    margin-bottom: 20px;
+}
