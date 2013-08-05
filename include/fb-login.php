@@ -8,14 +8,6 @@ if( !isset($_SESSION['post_token']) ||
     exit();
 }
  
-define( 'SQL_REGISTER_FB', "INSERT INTO `{$prefix}user` (`FBID`, `name`, `email`, `gender`, `locale`, `link`, `token`, `expiresin`, `jointime`, `updatetime`) VALUE (:FBID, :name, :email, :gender, :locale, :link, :token, :expiresin, :jointime, :updatetime)" );
-
-define('SQL_UPDATE_USER',"UPDATE `{$prefix}user` SET `token` = :token, `expiresin` = :expiresin, `updatetime` = :updatetime WHERE `FBID` = :FBID" );  
- 
-define( 'SQL_RECORD_LOGIN', "INSERT INTO `{$prefix}log` (`FBID`, `time`, `ip`) VALUE( :FBID, :time, :ip)"); 
- 
-define( 'SQL_REG_FIND_REPEAT', "SELECT * FROM `{$prefix}user` WHERE `FBID` = ?" );
- 
 $link = new PDO(CONNECT_STR, DB_USER, DB_PASS);
 
 $sth = $link->prepare(SQL_REG_FIND_REPEAT);
@@ -92,6 +84,10 @@ else
     $ret = 'new_login_success';
 
 }
+
+// 檢查大學欄位
+if( $result->university == null )
+    $ret = 'university_empty';
 
 echo json_encode( array( 'status' => $ret ));
 
