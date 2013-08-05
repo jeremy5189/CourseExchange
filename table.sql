@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.6.10)
 # Database: course_exchange
-# Generation Time: 2013-08-05 08:08:54 +0000
+# Generation Time: 2013-08-05 15:00:05 +0000
 # ************************************************************
 
 
@@ -53,6 +53,30 @@ CREATE TABLE `ce_log` (
 
 
 
+# Dump of table ce_university
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `ce_university`;
+
+CREATE TABLE `ce_university` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(5) DEFAULT NULL,
+  `chinese_name` varchar(10) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+LOCK TABLES `ce_university` WRITE;
+/*!40000 ALTER TABLE `ce_university` DISABLE KEYS */;
+
+INSERT INTO `ce_university` (`id`, `name`, `chinese_name`)
+VALUES
+	(1,'TKU','淡江大學'),
+	(2,'NTUST','臺灣科技大學');
+
+/*!40000 ALTER TABLE `ce_university` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
 # Dump of table ce_user
 # ------------------------------------------------------------
 
@@ -64,7 +88,7 @@ CREATE TABLE `ce_user` (
   `email` varchar(50) DEFAULT NULL,
   `gender` varchar(6) DEFAULT NULL,
   `locale` varchar(10) DEFAULT NULL,
-  `university` int(6) DEFAULT NULL,
+  `university` varchar(6) DEFAULT NULL,
   `link` varchar(100) DEFAULT NULL,
   `token` varchar(300) DEFAULT NULL,
   `expiresin` int(11) DEFAULT NULL,
