@@ -1,5 +1,9 @@
 <?php
 include_once('include/common.php');  
+
+// Prevent UnAuthorized Post Request
+$post_token = sha1(uniqid());
+$_SESSION['post_token'] = $post_token;
 ?>
 <!DOCTYPE html>
 <html>
@@ -14,7 +18,7 @@ include_once('include/common.php');
         window.fbAsyncInit = function() {
         
           FB.init({
-            appId: '647778805234419', // App ID
+            appId: <?php echo FB_APP_ID; ?>, // App ID
             status     : true, // check login status
             cookie     : true, // enable cookies to allow the server to access the session
             xfbml: true  // parse XFBML
@@ -59,7 +63,7 @@ include_once('include/common.php');
             }
           },{scope: 'email,publish_actions'}); // FB權限要求列表
         }
-        
+                
         // 顯示 Alert
         function showAlert( msg, type )
         {
@@ -70,13 +74,17 @@ include_once('include/common.php');
         function postBack(token, expiresIn)
         {
             FB.api('/me', function(resp) {
-                $.post('include/fb-login.php', { 'UID': resp.id, 
-                                              'name': resp.name, 
-                                              'email': resp.email, 
-                                              'fbLink': resp.link, 
-                                              'fbToken': token, 
-                                              'fbTokenExpire': expiresIn }, function(data) {
-                                              
+                $.post('include/fb-login.php', { 
+                    'FBID': resp.id, 
+                    'name': resp.name, 
+                    'email': resp.email,
+                    'gender': resp.gender,
+                    'locale': resp.locale,
+                    'link': resp.link, 
+                    'token': token, 
+                    'expiresin': expiresIn
+                }, function(data) {
+                                 
                     // 新使用者，導向去選擇大學
                     if( data.status == 'relogin_success' ) {
                         showAlert('歡迎光臨，等候導向中...', 'success');
@@ -117,6 +125,7 @@ include_once('include/common.php');
             <div class="row-fluid">
                 <div class="span12">
                     <div class="hero-unit">
+                      <div id="facebook-login-help"></div>
                       <h1>大學課程交換系統</h1>
                       <p>選課系統總是爆滿嗎？加簽總是沒加上嗎？總是爬不到自己要的換課文嗎？CouseExchange幫助你自動配對，讓換課變得更輕鬆容易！想要試試看嗎？馬上透過Facebook登入</p>
                       <p>

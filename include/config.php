@@ -9,6 +9,7 @@
 define( 'CONNECT_STR', "mysql:host=localhost;dbname=course_exchange" );
 define( 'DB_USER', 'root' );
 define( 'DB_PASS', 'streamline' );
+$prefix = 'ce_';
 
 /* 
  * -----------------------
@@ -18,4 +19,6 @@ define( 'DB_PASS', 'streamline' );
 
 define( 'SITE_URL', 'http://localhost/clone/CourseExchange' );
 define( 'SITE_EMAIL' , 'noreply@example.com' );
+define( 'FB_APP_ID' , '647778805234419' );
+define( 'FB_APP_SECRET', 'f837d051e51d0c28057112b432825e1c' );
 
