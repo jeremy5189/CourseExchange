@@ -1,7 +1,7 @@
 <?php
 include_once('include/common.php');  
 
-// Prevent UnAuthorized Post Request
+// Prevent Unauthorized Post Request
 $post_token = sha1(uniqid());
 $_SESSION['post_token'] = $post_token;
 ?>
@@ -27,18 +27,13 @@ $_SESSION['post_token'] = $post_token;
 		
           // 取得使用者目前登入狀態
           FB.getLoginStatus(function(response) {
+            showAlert('請按下方之登入Facebook按鈕進行登入', 'warning');
             if (response.status === 'connected') { 
                 // 已取得使用者授權          
                 loginState = true;
                 accessToken = response.authResponse.accessToken;
                 expiresIn = response.authResponse.expiresIn;
-			} else if (response.status === 'not_authorized') { 
-			    // 未取得使用者授權     
-                showAlert('請按下方之登入Facebook按鈕進行登入', 'warning');
-            } else { 
-                // 沒有登入FB          
-                showAlert('請按下方之登入Facebook按鈕進行登入', 'warning');
-            }     
+			}     
           });   
           
         }; // End FB Initialize
@@ -87,7 +82,7 @@ $_SESSION['post_token'] = $post_token;
                 }, function(data) {
                                  
                     // 新使用者，導向去選擇大學
-                    if( data.status == 'relogin_success' ) {
+                    if( data.status == 'relogin_success' || data.status == 'university_empty') {
                         showAlert('歡迎光臨，等候導向中...', 'success');
                         setTimeout(function() {
                             window.location = 'select.php';
