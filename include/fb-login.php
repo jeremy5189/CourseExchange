@@ -1,12 +1,12 @@
 <?php
 include_once('common.php'); 
 
-/*if( !isset($_SESSION['post_token']) || 
+if( !isset($_SESSION['post_token']) || 
     !isset($_GET['token']) || 
     $_SESSION['post_token'] != $_GET['token']  ) {
     // 非由網頁POST進來
     exit();
-}*/
+}
  
 define( 'SQL_REGISTER_FB', "INSERT INTO `{$prefix}user` (`FBID`, `name`, `email`, `gender`, `locale`, `link`, `token`, `expiresin`, `jointime`, `updatetime`) VALUE (:FBID, :name, :email, :gender, :locale, :link, :token, :expiresin, :jointime, :updatetime)" );
 

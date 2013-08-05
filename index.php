@@ -8,6 +8,7 @@ $_SESSION['post_token'] = $post_token;
 <!DOCTYPE html>
 <html>
     <head>
+        <title>首頁 | CourseExchange</title>
         <?php include_once('include/header.php'); ?>  
         <script charset="utf-8">
 
@@ -74,7 +75,7 @@ $_SESSION['post_token'] = $post_token;
         function postBack(token, expiresIn)
         {
             FB.api('/me', function(resp) {
-                $.post('include/fb-login.php', { 
+                $.post('include/fb-login.php?token=<?php echo $post_token; ?>', { 
                     'FBID': resp.id, 
                     'name': resp.name, 
                     'email': resp.email,
