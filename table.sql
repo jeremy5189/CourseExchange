@@ -28,6 +28,7 @@ DROP TABLE IF EXISTS `ce_course`;
 CREATE TABLE `ce_course` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `FBID` int(11) DEFAULT NULL,
+  `name` varchar(5) DEFAULT NULL,
   `changeID` varchar(20) DEFAULT NULL,
   `changeName` varchar(50) DEFAULT NULL,
   `wantID` varchar(20) DEFAULT NULL,
