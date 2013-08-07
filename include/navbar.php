@@ -1,6 +1,6 @@
 <div class="navbar navbar-inverse navbar-fixed-top">
   <div class="navbar-inner">
-    <a class="brand" href="#">CouseExchange - 大學課程交換系統</a>
+    <a class="brand" href="./">CouseExchange - 大學課程交換系統</a>
     <ul class="nav pull-right">
       <li><a href="manual.php">使用說明</a></li>
       <li><a href="about.php">關於我們</a></li>

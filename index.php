@@ -128,7 +128,7 @@ $_SESSION['post_token'] = $post_token;
                     <div class="hero-unit">
                       <div id="facebook-login-help"></div>
                       <h1>大學課程交換系統</h1>
-                      <p>選課系統總是爆滿嗎？加簽總是沒加上嗎？總是爬不到自己要的換課文嗎？CouseExchange幫助你自動配對，讓換課變得更輕鬆容易！想要試試看嗎？馬上透過Facebook登入</p>
+                      <p>選課系統總是爆滿嗎？加簽總是沒加上嗎？總是爬不到自己要的換課文嗎？CourseExchange幫助你自動配對，讓換課變得更輕鬆容易！想要試試看嗎？馬上透過Facebook登入</p>
                       <p>
                         <a onclick="checkLogin()" class="btn btn-primary btn-large">
                           透過Facebook登入
