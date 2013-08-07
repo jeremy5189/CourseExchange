@@ -4,7 +4,7 @@ include_once('include/common.php');
 <!DOCTYPE html>
 <html>
     <head>
-        <title>首頁 | CourseExchange</title>
+        <title>列表 | CourseExchange</title>
         <?php include_once('include/header.php'); ?> 
 <?
 /*

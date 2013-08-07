@@ -14,8 +14,10 @@ $sth = $link->prepare(SQL_SET_UNIVERSITY);
 $ret = $sth->execute(array(':university' => $_POST['select'],
                            ':FBID' => $_POST['FBID'] ));
 
-if($ret)
+if($ret) {
     $msg = 'true';
+    $_SESSION['university'] = $_POST['select'];
+}
 else
     $msg = 'false';
 

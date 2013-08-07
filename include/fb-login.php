@@ -37,6 +37,7 @@ if ( $result && $result->FBID == $_POST['FBID'] )
 	$_SESSION['FBID'] = $result->FBID;
 	$_SESSION['email'] = $result->email;
 	$_SESSION['name'] = $result->name;
+	$_SESSION['university'] = $result->university;
 	$_SESSION['login_success'] = "true";
 
 	// 寫入登入記錄
@@ -74,6 +75,7 @@ else
     $_SESSION['FBID'] = $_POST['FBID'];
 	$_SESSION['email'] = $_POST['email'];
 	$_SESSION['name'] = $_POST['name'];
+	$_SESSION['university'] = $result->university;
 	$_SESSION['login_success'] = "true";
 	
 	$sth = $link->prepare(SQL_RECORD_LOGIN);

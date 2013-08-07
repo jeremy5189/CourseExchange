@@ -82,14 +82,14 @@ $_SESSION['post_token'] = $post_token;
                 }, function(data) {
                                  
                     // 新使用者，導向去選擇大學
-                    if( data.status == 'relogin_success' || data.status == 'university_empty') {
+                    if( data.status == 'new_login_success' || data.status == 'university_empty') {
                         showAlert('歡迎光臨，等候導向中...', 'success');
                         setTimeout(function() {
                             window.location = 'select.php';
                         }, 1000);     
                     }
                     // 舊使用者回來，直接去新增課程
-                    else if( data.status == 'new_login_success' ) {
+                    else if( data.status == 'relogin_success' ) {
                         showAlert('成功登入，等候導向中...', 'success');
                         setTimeout(function() {
                             window.location = 'add.php';

@@ -6,4 +6,4 @@ sitemap.xml
 *.tar.gz
 *.zip
 ._*
-includes/config.php
+include/config.php
