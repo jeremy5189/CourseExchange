@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.6.10)
 # Database: course_exchange
-# Generation Time: 2013-08-05 15:00:05 +0000
+# Generation Time: 2013-08-07 06:52:56 +0000
 # ************************************************************
 
 
@@ -34,9 +34,25 @@ CREATE TABLE `ce_course` (
   `wantID` varchar(20) DEFAULT NULL,
   `wantName` varchar(50) DEFAULT NULL,
   `university` varchar(10) DEFAULT NULL,
+  `status` varchar(10) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+LOCK TABLES `ce_course` WRITE;
+/*!40000 ALTER TABLE `ce_course` DISABLE KEYS */;
+
+INSERT INTO `ce_course` (`id`, `FBID`, `name`, `changeID`, `changeName`, `wantID`, `wantName`, `university`, `status`)
+VALUES
+	(1,1272688531,NULL,'MB2002701','創業與行銷','FB2000701','財務管理','NTUST',NULL),
+	(2,1272688531,NULL,'MB2002701','創業與行銷','FB2000701','財務管理','NTUST',NULL),
+	(3,1272688531,NULL,'MB2002701','你好','FB2000701','丁丁','NTUST','等待中'),
+	(4,1272688531,NULL,'MB2002701','你好','FB2000701','丁丁','NTUST','等待中'),
+	(5,1272688531,NULL,'MB2002701','你好','FB2000701','拉拉','NTUST','等待中'),
+	(6,1272688531,NULL,'MB2002701','名稱','FB2000701','名稱','NTUST','等待中'),
+	(7,1272688531,NULL,'FB2000701','f','MB2002701','a','NTUST','交換中');
+
+/*!40000 ALTER TABLE `ce_course` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Dump of table ce_log
@@ -52,6 +68,17 @@ CREATE TABLE `ce_log` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+LOCK TABLES `ce_log` WRITE;
+/*!40000 ALTER TABLE `ce_log` DISABLE KEYS */;
+
+INSERT INTO `ce_log` (`id`, `FBID`, `time`, `ip`)
+VALUES
+	(1,1272688531,'2013-08-06 22:17:23','::1'),
+	(2,1272688531,'2013-08-06 22:17:26','::1'),
+	(3,1272688531,'2013-08-07 10:42:30','::1');
+
+/*!40000 ALTER TABLE `ce_log` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Dump of table ce_university

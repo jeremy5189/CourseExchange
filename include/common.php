@@ -41,3 +41,10 @@ define('SQL_SET_UNIVERSITY', "UPDATE `{$prefix}user` SET `university` = :univers
 
 define('SQL_LIST_UNIVERSITY', "SELECT * FROM {$prefix}university ORDER BY `id`");
 
+/*
+ * -------------------------
+ *   add.php
+ * -------------------------
+ */
+
+define("SQL_ADD_COURSE", "INSERT INTO `{$prefix}course` (`FBID`, `changeID`, `changeName`, `wantID`, `wantName`, `university`,`status`) VALUES ( :FBID, :changeID, :changeName, :wantID, :wantName, :university, :status)");
