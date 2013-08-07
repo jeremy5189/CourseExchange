@@ -1,6 +1,11 @@
 <?php
 include_once('include/common.php');  
 
+if( $_SESSION['login_success'] == 'true' ) {
+    header("Location: profile.php");
+    exit();
+}
+
 // Prevent Unauthorized Post Request
 $post_token = sha1(uniqid());
 $_SESSION['post_token'] = $post_token;
