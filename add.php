@@ -8,7 +8,7 @@ $_SESSION['post_token'] = $post_token;
 <!DOCTYPE html>
 <html>
     <head>
-        <title>選擇大學 | CourseExchange</title>
+        <title>選擇課程 | CourseExchange</title>
         <?php include_once('include/header.php'); ?> 
         <script charset="utf-8">
         	$(function() {
