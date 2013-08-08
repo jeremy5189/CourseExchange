@@ -27,8 +27,7 @@ DROP TABLE IF EXISTS `ce_course`;
 
 CREATE TABLE `ce_course` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `FBID` int(11) DEFAULT NULL,
-  `name` varchar(5) DEFAULT NULL,
+  `FBID` varchar(20) DEFAULT NULL,
   `changeID` varchar(20) DEFAULT NULL,
   `changeName` varchar(50) DEFAULT NULL,
   `wantID` varchar(20) DEFAULT NULL,
@@ -62,7 +61,7 @@ DROP TABLE IF EXISTS `ce_log`;
 
 CREATE TABLE `ce_log` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `FBID` int(11) DEFAULT NULL,
+  `FBID` varchar(20) DEFAULT NULL,
   `time` datetime DEFAULT NULL,
   `ip` varchar(15) DEFAULT NULL,
   PRIMARY KEY (`id`)
@@ -111,7 +110,7 @@ UNLOCK TABLES;
 DROP TABLE IF EXISTS `ce_user`;
 
 CREATE TABLE `ce_user` (
-  `FBID` int(11) unsigned NOT NULL,
+  `FBID` varchar(20) unsigned NOT NULL,
   `name` varchar(20) DEFAULT NULL,
   `email` varchar(50) DEFAULT NULL,
   `gender` varchar(6) DEFAULT NULL,
